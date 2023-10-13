@@ -259,7 +259,7 @@ Future<void> build(
     if (config.features != null) '--features=${config.features}'
   ], env: {
     'RUSTUP_TOOLCHAIN': 'nightly',
-    'RUSTFLAGS': '-C target-feature=+atomics,+bulk-memory,+mutable-globals',
+    'RUSTFLAGS': '-C target-feature=+atomics,+bulk-memory,+mutable-globals --cfg=web_sys_unstable_apis',
     if (stdout.supportsAnsiEscapes) 'CARGO_TERM_COLOR': 'always',
   });
   if (config.shouldRunBindgen) {
